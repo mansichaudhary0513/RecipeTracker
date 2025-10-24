@@ -1,0 +1,453 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+
+:root {
+  --green-main: #66ff66;
+  --green-dark: #33cc33; /* Dark green for progress bars */
+  --green-light: #47d747;
+  --text-dark: #333;
+  --text-light: #fff;
+  --bg-color: #f0f8f0;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --border-radius: 12px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Left Panel (Sidebar) */
+.left-panel {
+  width: 280px;
+  background-color: var(--primary-color); /* KEEP ORIGINAL COLOR */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  color: var(--text-light);
+}
+
+.profile-info {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-info .profile-icon {
+  font-size: 4rem;
+  color: var(--secondary-color);
+}
+
+.profile-info h3 {
+  margin-top: 0.5rem;
+  color: var(--text-light);
+}
+
+.tabs-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs-menu button {
+  background: transparent;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-light);
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.tabs-menu button:hover {
+  background-color: rgba(154, 205, 50, 0.15);
+  color: var(--secondary-color);
+}
+
+.tabs-menu button.active {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Right Panel (Main Content) */
+.right-panel {
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+.content-section {
+  width: 100%;
+}
+
+.content-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* General Card and Grid Styles */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.card p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.card i.fa {
+  color: var(--secondary-color);
+  margin-right: 0.5rem;
+}
+
+.loading-message,
+.message {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  padding: 2rem;
+}
+
+/* Recipes Search Bar */
+.search-bar {
+  display: flex;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.search-bar input {
+  flex-grow: 1;
+  border: 1px solid #ddd;
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius);
+  outline: none;
+  transition: border-color 0.3s ease;
+  padding-right: 2.5rem;
+}
+
+.search-bar input:focus {
+  border-color: var(--secondary-color);
+}
+
+.search-bar button {
+  background-color: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.3s ease;
+}
+
+.search-bar button:hover {
+  color: var(--secondary-color);
+}
+
+/* Gemini AI Tab */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.button-group button {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.button-group button:hover {
+  background-color: #1a521a;
+}
+
+/* Nutrition Tracker Tab */
+.calorie-goal-section {
+  background-color: var(--card-bg);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+.calorie-goal-section input {
+  width: 100px;
+  margin-left: 1rem;
+  padding: 0.25rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Progress Bar */
+.calorie-progress-bar {
+  background-color: #d6d6d6; /* Light gray background */
+  height: 20px;
+  border-radius: 10px;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background-color: var(--green-dark); /* Dark green fill */
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+/* Nutrition Form */
+.nutrition-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.nutrition-form input,
+.nutrition-form select {
+  flex-grow: 1;
+  border: 1px solid #ddd;
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius);
+  outline: none;
+}
+
+.nutrition-form button {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nutrition-form button:hover {
+  background-color: #1a521a;
+}
+
+/* Macro Summary */
+.macro-summary {
+  text-align: center;
+  background-color: var(--card-bg);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+.macro-summary span {
+  font-weight: bold;
+  color: #000; /* Black text for clarity */
+  font-size: 1rem;
+  margin: 0 0.5rem;
+}
+
+/* Meal Section */
+.meal-section {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+.meal-section h4 {
+  margin-top: 0;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.meal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.meal-item:last-child {
+  border-bottom: none;
+}
+
+.item-macros span {
+  font-size: 0.85rem;
+  margin-left: 1rem;
+  font-weight: bold;
+  color: #000; /* Bold black macros */
+}
+
+/* Progress & Analysis Tab */
+.chart-container {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.chart-container h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.chart {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 250px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 1rem;
+}
+
+.bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15%;
+}
+
+.bar {
+  background-color: var(--green-dark);
+  width: 100%;
+  border-radius: 4px;
+  transition: height 0.5s ease;
+  position: relative;
+}
+
+.bar-label {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-dark);
+}
+
+.bar-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.chart-note {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  margin-top: 1.5rem;
+}
+
+/* Profile Select Field - Highlight Selected Option */
+.profile-content select {
+  background-color: #e6f7e6; /* Light green for clarity */
+  color: #000; /* Bold black text */
+  font-weight: 600;
+  border: 1px solid #33cc33; /* Dark green border */
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius);
+  outline: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.profile-content select:focus {
+  background-color: #d4f1d4; /* Slightly darker green on focus */
+  border-color: var(--green-dark);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .left-panel {
+    width: 100%;
+    padding: 1rem;
+    box-shadow: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .profile-info {
+    flex-grow: 1;
+    text-align: left;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .profile-info .profile-icon {
+    font-size: 2.5rem;
+  }
+
+  .tabs-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tabs-menu button {
+    padding: 0.75rem;
+    flex-grow: 1;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .right-panel {
+    padding: 1rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-form {
+    flex-direction: column;
+  }
+}

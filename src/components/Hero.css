@@ -1,0 +1,61 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  text-align: center;
+  min-height: 90vh;
+  color: white;
+
+  background-image: url("../assets/hero-background.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Slightly darker overlay */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px; /* Increased max-width for the new text */
+}
+
+.hero-content h1 {
+  font-size: 3.8rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2; /* Improved line spacing */
+}
+
+/* --- Style for the colored words in the title --- */
+.hero-content h1 span {
+  color: var(--primary-color); /* Uses the green from global styles */
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Slightly transparent white for softer text */
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

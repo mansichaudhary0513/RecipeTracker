@@ -1,0 +1,81 @@
+/* src/components/Login.css */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #56ab2f, #a8e063); /* Green gradient */
+  padding: 2rem;
+}
+
+.login-form {
+  background: white;
+  padding: 2.5rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid #eee;
+}
+
+.login-header {
+  margin-bottom: 2rem;
+}
+
+.login-header .logo {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.login-header h2 {
+  color: #555;
+  font-weight: 500;
+}
+
+.login-header p {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 18px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.login-form .btn-primary {
+  width: 100%;
+  padding: 15px;
+  margin-top: 1rem;
+  font-size: 18px;
+}
+
+.login-message {
+  margin-top: 1rem;
+  font-weight: 500;
+}

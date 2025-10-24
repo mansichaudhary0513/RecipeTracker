@@ -1,0 +1,170 @@
+/* Variables for a consistent color scheme */
+:root {
+  --primary-color: #6a1b9a; /* A vibrant purple */
+  --secondary-color: #e1bee7; /* A soft lilac */
+  --background-color: #ffffff;
+  --card-background: #fdfdff;
+  --text-color: #333333;
+  --subtle-text-color: #777777;
+  --border-radius: 12px;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.gemini-feature {
+  padding: 6rem 2rem;
+  text-align: center;
+  background-color: var(--secondary-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gemini-feature h2 {
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.gemini-feature p {
+  font-size: 1.2rem;
+  color: var(--subtle-text-color);
+  max-width: 650px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.6;
+}
+
+.input-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+  width: 100%;
+  max-width: 700px;
+}
+
+.input-area input {
+  flex-grow: 1;
+  padding: 15px 20px;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  border: 2px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.input-area input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(106, 27, 154, 0.2);
+}
+
+.btn-primary {
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--background-color);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(106, 27, 154, 0.3);
+}
+
+.btn-primary:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.recipe-card {
+  max-width: 900px;
+  margin: 3rem auto 0 auto;
+  padding: 3rem;
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: left;
+  border-top: 6px solid var(--primary-color);
+  transition: all 0.5s ease-in-out;
+}
+
+.recipe-card h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.recipe-card .recipe-description {
+  text-align: center;
+  font-style: italic;
+  color: var(--subtle-text-color);
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+}
+
+.recipe-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .recipe-columns {
+    flex-direction: row;
+  }
+}
+
+.recipe-ingredients,
+.recipe-instructions {
+  flex: 1;
+}
+
+.recipe-card h3 {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.recipe-card ul,
+.recipe-card ol {
+  padding-left: 25px;
+}
+
+.recipe-card li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.loading-spinner {
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-left-color: var(--primary-color);
+  margin: 2rem auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
